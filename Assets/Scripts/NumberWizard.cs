@@ -11,7 +11,7 @@ public class NumberWizard : MonoBehaviour
     [SerializeField] int min;
     int numberOfGuesses;
     int guess;
-    bool showHistory = false;
+    bool showHistory = true;
     string guessHistory;
     [SerializeField] TextMeshProUGUI guessCountText;
     [SerializeField] Text guessHistoryText;
@@ -31,7 +31,6 @@ public class NumberWizard : MonoBehaviour
     void StartGame()
     {
         max = StartLogic.newMax;
-        guessHistoryText.enabled = false;
         max = max;
         guess = Random.Range(min, max + 1);
         guessText.text = guess.ToString();
@@ -94,7 +93,7 @@ public class NumberWizard : MonoBehaviour
     public void displayHistory()
     {
         showHistory = !showHistory;
-        if(showHistory)
+        if (showHistory)
         {
             guessHistoryText.enabled = true;
         }
@@ -102,6 +101,7 @@ public class NumberWizard : MonoBehaviour
         {
             guessHistoryText.enabled = false;
         }
+
     }
 
     
